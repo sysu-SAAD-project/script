@@ -4,5 +4,5 @@ $download
 else
 echo "file exits"
 fi
-run="docker-compose up"
+run="docker-compose up -d"
 $run

@@ -37,13 +37,23 @@ service-end:
   expose:
     - 8080
 
-gateway:
+dev_gateway:
   image: nginx:latest
   volumes:
-    - /server/script/dev/nginx:/etc/nginx
-  ports:
-    - "443:443"
-    - "80:80"
+    - /server/script/dev/nginx:/etc/nginx:ro
+  expose:
+    - 80
   links:
     - service-end 
     - mysql_client
+  networks:
+    - share
+
+networks:
+  default:
+    external:
+      name: dev
+  share:
+    external:
+      name: activity
+    

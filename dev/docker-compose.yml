@@ -18,6 +18,7 @@ mysql_client:
   image: phpmyadmin/phpmyadmin
   environment:
     - PMA_HOST=mysql
+    - PMA_ABSOLUTE_URI=/db
   links:
     - mysql
 

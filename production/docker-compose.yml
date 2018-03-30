@@ -7,31 +7,21 @@ services:
   redis:
     image: redis
     volumes:
-      - /server/data/dev/redis:/data/
+      - /server/data/production/redis:/data/
     networks:
       - own
 
   mysql:
     image: mysql:5.6
     volumes:
-      - /server/data/dev/mysql:/var/lib/mysql
+      - /server/data/production/mysql:/var/lib/mysql
     environment:
         MYSQL_ROOT_PASSWORD: root
     networks:
       - own
-        
-  mysql_client:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      - PMA_HOST=mysql
-      - PMA_ABSOLUTE_URI=/db
-    links:
-      - mysql
-    networks:
-      - own
 
   service-end:
-    image: xiaxzh/script:dev
+    image: xiaxzh/script
     environment:
       - DEVELOP=true
       - PORT=8080
@@ -47,24 +37,22 @@ services:
     networks:
       - own
 
-  dev_gateway:
+  production_gateway:
     image: nginx:latest
     volumes:
-      - /server/script/dev/nginx:/etc/nginx:ro
+      - /server/script/production/nginx:/etc/nginx:ro
     expose:
       - 80
     links:
-      - service-end 
-      - mysql_client
-    networks:
+      - service-end
+    networks: 
       - share
       - own
 
 networks:
   own:
     external:
-      name: dev
+      name: production
   share:
     external:
       name: activity
-    

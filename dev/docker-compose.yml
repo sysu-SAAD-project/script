@@ -16,8 +16,10 @@ mysql:
       
 mysql_client:
   image: phpmyadmin/phpmyadmin
-  external_links:
-    - mysql:db
+  environment:
+    - PMA_HOST=mysql
+  links:
+    - mysql
 
 service-end:
   image: xiaxzh/script:dev

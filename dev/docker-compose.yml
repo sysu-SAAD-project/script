@@ -51,7 +51,7 @@ services:
     image: nginx:latest
     volumes:
       - /server/script/dev/nginx:/etc/nginx:ro
-      - /server/static/dev:/data/www
+      - /server/static/dev:/data/static
     expose:
       - 80
     links:

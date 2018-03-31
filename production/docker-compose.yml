@@ -8,6 +8,8 @@ services:
     image: redis
     volumes:
       - /server/data/production/redis:/data/
+    networks:
+      - own
 
   mysql:
     image: mysql:5.6
@@ -15,6 +17,8 @@ services:
       - /server/data/production/mysql:/var/lib/mysql
     environment:
         MYSQL_ROOT_PASSWORD: root
+    networks:
+      - own
 
   service-end:
     image: xiaxzh/script
@@ -30,6 +34,8 @@ services:
       - mysql
     expose:
       - 8080
+    networks:
+      - own
 
   production_gateway:
     image: nginx:latest
@@ -41,9 +47,10 @@ services:
       - service-end
     networks: 
       - share
+      - own
 
 networks:
-  default:
+  own:
     external:
       name: production
   share:

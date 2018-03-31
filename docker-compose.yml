@@ -8,10 +8,10 @@ services:
     ports:
       - "443:443"
       - "80:80"
-    links:
-      - service-end
+    networks:
+      - own
 
 networks:
-  default:
+  own:
     external:
       name: activity

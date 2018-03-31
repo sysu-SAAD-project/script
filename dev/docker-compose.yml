@@ -46,7 +46,7 @@ services:
     expose:
       - 80
     links:
-      - service-end 
+      - service-end
       - mysql_client
     networks:
       - share

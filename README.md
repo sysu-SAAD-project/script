@@ -1,12 +1,10 @@
 # SYSU-activityPlus server script
 
-===
 
  This repository is served for running the server of sysu-activity.
 
 ## Introduction
 
-===
 
 This script is composed of two parts, dev and production.
 
@@ -22,7 +20,6 @@ The root folder contains another compose file which is used for gateway. Both DE
 
 ## Usage
 
-===
 
 Just enter these command. It will help you download the `docker-compse.yml` and start to build it.
 ```shell

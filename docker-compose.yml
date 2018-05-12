@@ -2,9 +2,10 @@ version: '2'
 
 services:
   gateway:
-    image: nginx:latest
+    image: txzdream/sysu-activityPlus-pc:dev
     volumes:
-      - /server/script/nginx:/etc/nginx
+      - /server/script/nginx/ssl:/etc/nginx/ssl
+      - /server/script/nginx/conf/:/etc/nginx/conf.d/:ro
     ports:
       - "443:443"
       - "80:80"

@@ -47,6 +47,23 @@ services:
     networks:
       - own
 
+  pc-service-end:
+    image: txzdream/sysu-activityPlus-pc-service_end:dev
+    environment:
+      - DEVELOP=true
+      - PORT=8080
+      - DATABASE_ADDRESS=mysql
+      - DATABASE_PORT=3306
+      - REDIS_ADDRESS=redis
+      - REDIS_PORT=6379
+    links:
+      - redis
+      - mysql
+    expose:
+      - 8080
+    networks:
+      - own
+
   dev_gateway:
     image: nginx:latest
     volumes:
@@ -57,9 +74,11 @@ services:
     links:
       - service-end 
       - mysql_client
+      - pc-service-end
     networks:
       - share
       - own
+      
 
 networks:
   own:

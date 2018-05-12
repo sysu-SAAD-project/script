@@ -26,3 +26,17 @@ Just enter these command. It will help you download the `docker-compse.yml` and 
     $ chmod +x run.sh
     $ ./run.sh
 ```
+
+## url介绍
+
+- 小程序服务端
+
+  https://sysuactivity.com/
+
+- pc服务端
+
+  https://sysuactivity.com/api/
+
+- pc前端
+
+  https://sysuactivity.com/admin/

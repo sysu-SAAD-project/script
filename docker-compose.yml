@@ -2,7 +2,7 @@ version: '2'
 
 services:
   gateway:
-    image: txzdream/sysu-activityPlus-pc:dev
+    image: txzdream/sysu-activityplus-pc:dev
     volumes:
       - /server/script/nginx/ssl:/etc/nginx/ssl
       - /server/script/nginx/conf/:/etc/nginx/conf.d/:ro

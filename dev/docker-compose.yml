@@ -48,7 +48,7 @@ services:
       - own
 
   pc-service-end:
-    image: txzdream/sysu-activityPlus-pc-service_end:dev
+    image: txzdream/sysu-activityplus-pc-service_end:dev
     environment:
       - DEVELOP=true
       - PORT=8080

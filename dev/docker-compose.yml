@@ -49,7 +49,7 @@ services:
 
   pc-service-end:
     image: txzdream/sysu-activityplus-pc-service_end:dev
-    vloumes:
+    volumes:
       - /server/static/dev:/data/static
     environment:
       - DEVELOP=true

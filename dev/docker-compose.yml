@@ -49,6 +49,8 @@ services:
 
   pc-service-end:
     image: txzdream/sysu-activityplus-pc-service_end:dev
+    vloumes:
+      - /server/static/dev:/data/static
     environment:
       - DEVELOP=true
       - PORT=8080
@@ -56,6 +58,7 @@ services:
       - DATABASE_PORT=3306
       - REDIS_ADDRESS=redis
       - REDIS_PORT=6379
+      - STATIC_DIR=/data/static
     links:
       - redis
       - mysql

@@ -19,8 +19,8 @@ services:
         MYSQL_ROOT_PASSWORD: root
     networks:
       - own
-    expose:
-      - 
+    ports:
+      - "3306:3306"
         
   mysql_client:
     image: phpmyadmin/phpmyadmin

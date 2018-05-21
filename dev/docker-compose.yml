@@ -20,7 +20,7 @@ services:
     networks:
       - own
     ports:
-      - "3306:3306"
+      - "3307:3306"
         
   mysql_client:
     image: phpmyadmin/phpmyadmin

@@ -20,7 +20,7 @@ services:
     networks:
       - own
     ports:
-      - "3307:3306"
+      - "3306:3306"
         
   mysql_client:
     image: phpmyadmin/phpmyadmin
@@ -29,8 +29,6 @@ services:
       - PMA_ABSOLUTE_URI=/db
     links:
       - mysql
-    ports:
-      - "3306:3306"
     networks:
       - own
 

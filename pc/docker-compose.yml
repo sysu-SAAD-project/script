@@ -1,0 +1,42 @@
+# mysql listening on port 3306
+# service-end listening on port 8080
+version: '2'
+
+services:
+
+  pc-service-end:
+    image: txzdream/sysu-activityplus-pc-service_end:dev
+    volumes:
+      - /server/static/dev:/data/static
+    environment:
+      - DEVELOP=TRUE
+      - PORT=8080
+      - DATABASE_ADDRESS=mysql
+      - DATABASE_PORT=3306
+      - STATIC_DIR=/data/static
+    links:
+      - redis
+      - mysql
+    expose:
+      - 8080
+    networks:
+      - share
+
+  pc-gateway:
+    image: nginx:latest
+    volumes:
+      - /server/script/dev/nginx:/etc/nginx/conf.d/:ro
+      - /server/static/dev:/data/static
+    expose:
+      - 80
+    links:
+      - pc-service-end
+    networks:
+      - share
+      
+
+networks:
+  share:
+    external:
+      name: activity
+    

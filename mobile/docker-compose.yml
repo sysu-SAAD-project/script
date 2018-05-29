@@ -1,0 +1,39 @@
+# mysql listening on port 3306
+# service-end listening on port 8080
+version: '2'
+
+services:
+
+  mobile-service-end:
+    image: xiaxzh/script:dev
+    environment:
+      - DEVELOP=TRUE
+      - PORT=8080
+      - DATABASE_ADDRESS=mysql
+      - DATABASE_PORT=3306
+    links:
+      - redis
+      - mysql
+    expose:
+      - 8080
+    networks:
+      - share
+
+  mobile-gateway:
+    image: nginx:latest
+    volumes:
+      - /server/script/dev/nginx:/etc/nginx/conf.d/:ro
+      - /server/static/dev:/data/static
+    expose:
+      - 80
+    links:
+      - mobile-service-end
+    networks:
+      - share
+      
+
+networks:
+  share:
+    external:
+      name: activity
+    

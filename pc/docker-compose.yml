@@ -15,7 +15,6 @@ services:
       - DATABASE_PORT=3306
       - STATIC_DIR=/data/static
     links:
-      - redis
       - mysql
     expose:
       - 8080

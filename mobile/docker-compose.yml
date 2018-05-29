@@ -12,7 +12,6 @@ services:
       - DATABASE_ADDRESS=mysql
       - DATABASE_PORT=3306
     links:
-      - redis
       - mysql
     expose:
       - 8080

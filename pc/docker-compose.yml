@@ -19,6 +19,15 @@ services:
     networks:
       - share
 
+  pc-message-queue:
+    image: rabbitmq:3-management
+    hostname: sysuactivity.com
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=root
+    networks:
+      - share
+
   pc-gateway:
     image: nginx:latest
     volumes:
@@ -27,6 +36,7 @@ services:
       - 80
     links:
       - pc-service-end
+      - pc-message-queue
     networks:
       - share
       

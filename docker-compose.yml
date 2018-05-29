@@ -7,6 +7,7 @@ services:
     volumes:
       - /server/script/nginx/ssl:/etc/nginx/ssl
       - /server/script/nginx/conf/:/etc/nginx/conf.d/:ro
+      - /server/static/dev:/data/static:ro
     ports:
       - "443:443"
       - "80:80"

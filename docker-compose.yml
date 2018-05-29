@@ -2,27 +2,6 @@ version: '2'
 
 services:
 
-  mysql:
-    image: mysql:5.6
-    volumes:
-      - /server/data/dev/mysql:/var/lib/mysql
-    environment:
-        MYSQL_ROOT_PASSWORD: root
-    networks:
-      - share
-    ports:
-      - "5000:3306"
-        
-  mysql_client:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      - PMA_HOST=mysql
-      - PMA_ABSOLUTE_URI=/db
-    links:
-      - mysql
-    networks:
-      - share
-
   gateway:
     image: txzdream/sysu-activityplus-pc:dev
     volumes:
@@ -31,6 +10,8 @@ services:
     ports:
       - "443:443"
       - "80:80"
+    links:
+      - mysql_client
     networks:
       - share
 

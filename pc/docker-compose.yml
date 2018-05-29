@@ -14,8 +14,6 @@ services:
       - DATABASE_ADDRESS=mysql
       - DATABASE_PORT=3306
       - STATIC_DIR=/data/static
-    links:
-      - mysql
     expose:
       - 8080
     networks:

@@ -11,8 +11,6 @@ services:
       - PORT=8080
       - DATABASE_ADDRESS=mysql
       - DATABASE_PORT=3306
-    links:
-      - mysql
     expose:
       - 8080
     networks:

@@ -10,8 +10,6 @@ services:
     ports:
       - "443:443"
       - "80:80"
-    links:
-      - mysql_client
     networks:
       - share
 

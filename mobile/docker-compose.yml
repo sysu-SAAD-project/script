@@ -19,8 +19,7 @@ services:
   mobile-gateway:
     image: nginx:latest
     volumes:
-      - /server/script/dev/nginx:/etc/nginx/conf.d/:ro
-      - /server/static/dev:/data/static
+      - /server/script/mobile/nginx:/etc/nginx/conf.d/:ro
     expose:
       - 80
     links:

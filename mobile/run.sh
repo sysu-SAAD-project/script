@@ -6,6 +6,7 @@
 # fi
 # run="docker-compose up -d"
 # $run
+docker rm $(docker ps -a -q) -f
 cd db/
 docker-compose up -d
 cd ../pc

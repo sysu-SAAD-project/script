@@ -14,9 +14,9 @@ services:
       - DATABASE_ADDRESS=mysql
       - DATABASE_PORT=3306
       - STATIC_DIR=/data/static
-      - MQ_ADDRESS:pc-message-queue
-      - MQ_USER:root
-      - MQ_PASSWORD:root
+      - MQ_ADDRESS=pc-message-queue
+      - MQ_USER=root
+      - MQ_PASSWORD=root
     expose:
       - 8080
     networks:
@@ -34,10 +34,10 @@ services:
   pc-mail-service:
     image: txzdream/sysu-activityplus-pc-mail-service:dev
     environment:
-      - ADMIN_MAIL_PASS:T3Y2vAX3i1jH
-      - MQ_ADDRESS:pc-message-queue
-      - MQ_USER:root
-      - MQ_PASSWORD:root
+      - ADMIN_MAIL_PASS=T3Y2vAX3i1jH
+      - MQ_ADDRESS=pc-message-queue
+      - MQ_USER=root
+      - MQ_PASSWORD=root
     networks:
       - share
 

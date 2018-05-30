@@ -40,6 +40,8 @@ services:
       - MQ_PASSWORD=root
     networks:
       - share
+    depends_on: pc-message-queue
+    restart: always
 
   pc-gateway:
     image: nginx:latest

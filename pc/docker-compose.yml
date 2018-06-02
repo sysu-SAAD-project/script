@@ -17,6 +17,7 @@ services:
       - MQ_ADDRESS=pc-message-queue
       - MQ_USER=root
       - MQ_PASSWORD=root
+      - ADMIN_MAIL_PASS=T3Y2vAX3i1jH
     expose:
       - 8080
     networks:

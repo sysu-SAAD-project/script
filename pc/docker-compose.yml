@@ -22,27 +22,27 @@ services:
     networks:
       - share
 
-  pc-message-queue:
-    image: rabbitmq:3-management
-    hostname: sysuactivity.com
-    environment:
-      - RABBITMQ_DEFAULT_USER=root
-      - RABBITMQ_DEFAULT_PASS=root
-    networks:
-      - share
+  # pc-message-queue:
+  #   image: rabbitmq:3-management
+  #   hostname: sysuactivity.com
+  #   environment:
+  #     - RABBITMQ_DEFAULT_USER=root
+  #     - RABBITMQ_DEFAULT_PASS=root
+  #   networks:
+  #     - share
 
-  pc-mail-service:
-    image: txzdream/sysu-activityplus-pc-mail-service:dev
-    environment:
-      - ADMIN_MAIL_PASS=T3Y2vAX3i1jH
-      - MQ_ADDRESS=pc-message-queue
-      - MQ_USER=root
-      - MQ_PASSWORD=root
-    networks:
-      - share
-    depends_on: 
-      - pc-message-queue
-    restart: always
+  # pc-mail-service:
+  #   image: txzdream/sysu-activityplus-pc-mail-service:dev
+  #   environment:
+  #     - ADMIN_MAIL_PASS=T3Y2vAX3i1jH
+  #     - MQ_ADDRESS=pc-message-queue
+  #     - MQ_USER=root
+  #     - MQ_PASSWORD=root
+  #   networks:
+  #     - share
+  #   depends_on: 
+  #     - pc-message-queue
+  #   restart: always
 
   pc-gateway:
     image: nginx:latest
@@ -52,7 +52,6 @@ services:
       - 80
     links:
       - pc-service-end
-      - pc-message-queue
     networks:
       - share
       
